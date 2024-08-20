@@ -50,12 +50,27 @@ var proxyPersona = new Proxy (persona, {
         return objeto
     }
 })
-proxyPersona.nombre = "andrés";
-proxyPersona.apellido = "garcía";
+// proxyPersona.nombre = "andrés";
+// proxyPersona.apellido = "garcía";
 // proxyPersona.edad = "quince"; // muestra mensaje de error en consola
-proxyPersona.edad = "15";
+// proxyPersona.edad = "15";
 
-console.log(proxyPersona.nombre);
-console.log(proxyPersona.apellido);
-console.log(proxyPersona.rut);
-console.log(proxyPersona.edad);
+// console.log(proxyPersona.nombre);
+// console.log(proxyPersona.apellido);
+// console.log(proxyPersona.rut);
+// console.log(proxyPersona.edad);
+
+
+console.log(proxyPersona);
+
+console.log("Reflect.has - nombre", Reflect.has(proxyPersona, "nombre"));
+console.log("Reflect.has - nombre_completo", Reflect.has(proxyPersona, "nombre_nombre"));
+
+console.log("Reflect.get - nombre", Reflect.get(proxyPersona, "nombre"));
+console.log("Reflect.get - nombre_completo", Reflect.get(proxyPersona, "nombre_nombre"));
+
+console.log("Reflect.ownKeys", Reflect.ownKeys(proxyPersona));
+console.log("getOwnPropertyNames", Object.getOwnPropertyNames(proxyPersona));
+
+Reflect.deleteProperty(proxyPersona, "rut");
+console.log("Reflect.deleteProperty", proxyPersona);
